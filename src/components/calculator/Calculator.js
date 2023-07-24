@@ -12,6 +12,7 @@ import authHeader from '../../services/auth.header';
 function Calculator() {
 
   const apiUrl = 'http://localhost:8080/SpringSecurityWithJwt/calculation';
+  //const apiUrl = 'http://localhost:8080/SpringSecurityJwt/calculation';
 
   const [displayValue, setDisplayValue] = useState('0');
 
@@ -115,8 +116,8 @@ function Calculator() {
   //   }
   // };
 
+  
   const calculate = () => {
-    // const apiUrl = 'http://localhost:8080/SpringSecurity1111/calculation';
     let value = displayValue + "";
     const inputArrayToSend = [...inputArray];
     if (previousResult !== '0') {
@@ -130,7 +131,11 @@ function Calculator() {
         setInputArray([{ value: result, type: 'num' }]);
       })
       .catch((error) => {
-        console.log('Error:', error);
+        if (error.response.status === 403) {
+          alert('You are not an admin to view the result.');
+        } else {
+          console.log('Error:', error);
+        }
       });
   };
 

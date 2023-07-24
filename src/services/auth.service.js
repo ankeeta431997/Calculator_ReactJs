@@ -1,6 +1,10 @@
 import axios  from "axios";
 
+
 const API_URL = "http://localhost:8080/SpringSecurityWithJwt/api/auth/";
+//const API_URL = "http://localhost:8080/SpringSecurityJwt/api/auth/";
+
+
 
 const register = (username, email,role, password) => {
     return axios.post(API_URL + "signup", {
@@ -26,6 +30,7 @@ const register = (username, email,role, password) => {
       });
   };
   const logout = () => {
+    
     localStorage.removeItem("user");
   };
 

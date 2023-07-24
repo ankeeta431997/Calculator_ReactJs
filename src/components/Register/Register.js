@@ -49,6 +49,10 @@ const Register = () => {
     const [role, setRole] = useState([]);
     const [password, setPassword] = useState("");
     const [successful, setSuccessful] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
+
 
     const onChangeUsername = (e) => {
         const username = e.target.value;
@@ -84,22 +88,35 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         AuthorizationService.register(username, email, role, password)
-            // Perform registration logic here
-            .then(() => {
-                setSuccessful(true);
-                navigate("/login");
+            .then((response) => {
+                if (response.data.message === "User registered successfully!") {
+                    setSuccessMessage("Registration successful!");
+                    setErrorMessage("");
+                    navigate("/login");
+                } else {
+                    setErrorMessage("Registration failed. Please try again.");
+                    setSuccessMessage("");
+                }
             })
             .catch((error) => {
                 console.log(error);
+                setErrorMessage("Registration failed. Please try again.");
+                setSuccessMessage("");
             });
+
     };
 
     return (
         <div>
-            <h2>Register</h2>
-            {successful && (
+           <h2>Register</h2>
+            {successMessage && (
                 <div className="alert alert-success" role="alert">
-                    Registration successful!
+                    {successMessage}
+                </div>
+            )}
+            {errorMessage && (
+                <div className="alert alert-danger" role="alert">
+                    {errorMessage}
                 </div>
             )}
             <form onSubmit={handleSubmit}>

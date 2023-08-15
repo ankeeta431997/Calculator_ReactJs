@@ -39,7 +39,7 @@ const Login = () => {
         AuthorizationService.login(username, password)
             .then(() => {
                 navigate("/calculator");
-                window.location.reload();
+               // window.location.reload();
             })
             .catch((error) => {
                 setError("Invalid credentials. Please try again."); // Set error message if login fails
@@ -51,10 +51,11 @@ const Login = () => {
                 <div className="Auth-form-content">
                     <h3 className="Auth-form-title">Sign In</h3>
                     <div className="form-group mt-3">
-                        <label> Username  </label>
+                    <label htmlFor="username">Username</label>
                         <input
                             type="text"
                             className="form-control mt-1"
+                            id="username"
                             name="username"
                             value={username}
                             onChange={onChangeUsername}
@@ -62,10 +63,11 @@ const Login = () => {
                         />
                     </div>
                     <div className="form-group mt-3">
-                        <label>Password </label>
+                    <label htmlFor="password">Password</label>
                         <input
                             type="password"
                             className="form-control mt-1"
+                            id="password"
                             name="password"
                             value={password}
                             onChange={onChangePassword}

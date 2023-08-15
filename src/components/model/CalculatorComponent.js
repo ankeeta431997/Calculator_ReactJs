@@ -13,19 +13,19 @@ const CalculatorComponent = ({ displayValue, handleNumberClick, handleOperationC
       <div className="button-container">
         <div className="num-buttons">
           {numberButtons.map((number) => (
-            <NumButton key={number} number={number} handleClick={handleNumberClick} />
+            <NumButton key={number} number={number} label={number} numButtonClick={()=>handleNumberClick(number)} />
           ))}
         </div>
 
         <div className="op-buttons">
           {operatorButtons.map((operator) => (
-            <OpButton key={operator} operator={operator} handleClick={handleOperationClick} />
+            <OpButton key={operator} operator={operator} label={operator} opButtonClick={()=>handleOperationClick(operator)} />
           ))}
         </div>
 
         <div className="fun-buttons">
           {functionButtons.map((label) => (
-            <FunButton key={label} label={label} handleClick={handleFunctionClick} />
+            <FunButton key={label} label={label} funButtonClick={()=>handleFunctionClick(label)} />
           ))}
         </div>
       </div>

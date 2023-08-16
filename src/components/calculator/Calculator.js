@@ -71,7 +71,6 @@ function Calculator() {
   const handleFunctionClick = (func) => {
     console.log("Function Button click calculator: ", func);
     if (func === 'C') {
-      const newInputArray = getInputArray();
       setValue('0');
       setPreviousResult('0');
       setInputArrayState([]);

@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState} from "react";
 import './Register.css';
 import { isEmail } from "validator";
 import AuthorizationService from "../../services/auth.service";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const required = (value) => {
     if (!value) {
@@ -48,7 +48,6 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [role, setRole] = useState([]);
     const [password, setPassword] = useState("");
-    const [successful, setSuccessful] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 

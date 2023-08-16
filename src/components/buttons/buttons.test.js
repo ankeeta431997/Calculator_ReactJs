@@ -12,7 +12,15 @@ describe('BaseButton Component', () => {
         expect(buttonElement).toBeInTheDocument();
       });
     
-    
+     it('applies className and id props', () => {
+    const className = 'custom-button';
+    const id = 'test-button';
+    const label = 'Click Me';
+    const { getByText } = render(<BaseButton label={label} className={className} id={id} />);
+    const buttonElement = getByText(label);
+    expect(buttonElement).toHaveClass(className);
+    expect(buttonElement).toHaveAttribute('id', id);
+  });
       
       it('calls onClick prop when button is clicked', () => {
         const onClickMock = jest.fn();

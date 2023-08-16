@@ -1,17 +1,17 @@
 import React from 'react'
 import './Navbar.css'
-import { Link, useNavigate } from 'react-router-dom'
-import AuthorizationService from '../../services/auth.service';
+import { Link} from 'react-router-dom'
+//import AuthorizationService from '../../services/auth.service';
 import Logout from '../Logout/Logout';
 
 const Navbar = () => {
   
-  let navigate = useNavigate();
-  const handleLogout = () => {
-    AuthorizationService.logout();
-     navigate("/login");
+  // let navigate = useNavigate();
+  // const handleLogout = () => {
+  //   AuthorizationService.logout();
+  //    navigate("/login");
 
-  };
+  // };
 
   return (
     <div className='navbar'>

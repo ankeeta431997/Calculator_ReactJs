@@ -24,7 +24,14 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "jest": {
+      "testMatch": [
+        "**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "**/?(*.)(spec|test).{js,jsx,ts,tsx}",
+        "**/src/components/**/*.(spec|test).{js,jsx,ts,tsx}"  
+      ]
+    }
   },
   "browserslist": {
     "production": [

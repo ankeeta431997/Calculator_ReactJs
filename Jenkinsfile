@@ -17,6 +17,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
+                 bat 'npm install' // Install dependencies again before running tests
                 bat 'npm test'
             }
         }

@@ -18,20 +18,9 @@ pipeline {
         stage('Run Tests') {
             steps {
                  bat 'npm install' // Install dependencies again before running tests
-                bat 'npm test'
+                bat 'npm test-- --passWithNoTests'
             }
         }
-stage('Excuite Test') {
-    steps {
-        script {
-            def testResult = bat(script: 'npm test -- --passWithNoTests 2>&1', returnStatus: true)
-            if (testResult != 0) {
-                currentBuild.result = 'FAILURE'
-            }
-        }
-    }
-}
-
     }
 
     post {

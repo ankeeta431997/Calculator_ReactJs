@@ -21,6 +21,17 @@ pipeline {
                 bat 'npm test'
             }
         }
+stage('Run Tests') {
+    steps {
+        script {
+            def testResult = bat(script: 'npm test -- --passWithNoTests 2>&1', returnStatus: true)
+            if (testResult != 0) {
+                currentBuild.result = 'FAILURE'
+            }
+        }
+    }
+}
+
     }
 
     post {

@@ -21,7 +21,7 @@ pipeline {
                 bat 'npm test'
             }
         }
-stage('Run Tests') {
+stage('Excuite Test') {
     steps {
         script {
             def testResult = bat(script: 'npm test -- --passWithNoTests 2>&1', returnStatus: true)

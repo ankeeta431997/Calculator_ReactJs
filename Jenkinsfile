@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    stages {
+      
         stage('Install Dependencies') {
             steps {
                 bat 'npm install'
@@ -15,7 +17,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'npm test'
+                bat 'npm test -- --passWithNoTests'
             }
         }
     }

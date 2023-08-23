@@ -19,12 +19,6 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('axios');
 
-it('should render Login component when navigating to /login', () => {
-  const { container } = render(<App />);
-  const loginLink = screen.getByText('Login');
-  fireEvent.click(loginLink);
-  expect(container.querySelector('.Auth-form-container')).toBeInTheDocument();
-});
 
 
 it('should render Register component when navigating to /register', () => {

@@ -42,7 +42,7 @@ Jenkins
 
                 emailext (
                     body: emailBody,
-                    recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                    to:'ankita.desai@unoveo.com',
                     subject: "$projectName - Build # $buildNumber - $buildStatus"
                 )
             }
